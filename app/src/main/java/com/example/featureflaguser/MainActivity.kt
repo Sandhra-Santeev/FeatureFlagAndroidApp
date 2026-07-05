@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.featureflaguser.feature.dashboard.DashboardScreen
 import com.example.featureflaguser.feature.login.LoginScreen
+import com.example.featureflaguser.feature.splash.SplashScreen
 import com.example.featureflaguser.ui.theme.FeatureFlagUserTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,8 +36,11 @@ class MainActivity : ComponentActivity() {
                val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = "login"
+                    startDestination = "splash"
                 ){
+                    composable("splash"){
+                        SplashScreen(navController)
+                    }
                     composable("login") {
                         LoginScreen(navController)
                     }

@@ -13,6 +13,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -52,7 +54,11 @@ fun LoginScreen(
     LaunchedEffect(loginState) {
         if(loginState is LoginUiState.Success){
 
-            navController.navigate("dashboard")
+            navController.navigate("dashboard"){
+                popUpTo("splash"){
+                    inclusive = true
+                }
+            }
 
         }
         if (loginState is LoginUiState.Error){
@@ -129,7 +135,12 @@ fun LoginScreen(
                 viewModel.login(request)
 
             },
-            shape = RoundedCornerShape(8.dp)
+            shape = RoundedCornerShape(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                contentColor = _root_ide_package_.androidx.compose.ui.graphics.Color.White,
+                containerColor = _root_ide_package_.androidx.compose.ui.graphics.Color.Blue
+
+            )
 
         ) {
             Text("Login")
