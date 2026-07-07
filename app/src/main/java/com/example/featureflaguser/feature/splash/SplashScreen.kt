@@ -23,17 +23,19 @@ fun SplashScreen(
         when(uiState){
             SplashUiState.NavigateToDashboard->{
                 navController.navigate("dashboard"){
-                    popUpTo("spalsh"){
+                    popUpTo("splash"){
                         inclusive = true
                     }
+                    launchSingleTop = true
                 }
 
             }
             SplashUiState.NavigateToLogin->{
                 navController.navigate("login"){
-                    popUpTo("spalsh"){
+                    popUpTo("splash"){
                         inclusive = true
                     }
+                    launchSingleTop = true
                 }
 
             }
